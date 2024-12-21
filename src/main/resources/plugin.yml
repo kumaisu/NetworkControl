@@ -1,0 +1,42 @@
+name: NetworkControl
+version: '1.1.1'
+main: io.github.kumaisu.networkControl.NetworkControl
+api-version: '1.21'
+description: login history plugins
+author: Kumaisu
+database: true
+commands:
+  beginner:
+    description: Beginner Area Teleport
+    permission: LoginCtl.biginner
+    permission-message: You do not have permission.
+    default: op
+    usage: /<command>
+  loginlist:
+    description: Login History Print
+    aliases: ll
+    permission: LoginCtl.loginlist
+    permission-message: You do not have permission.
+    default: op
+    usage: /<command> [full] [d:yymmdd] [u:player name] [i:IP Address] [l:Lines]
+  loginctl:
+    description: LoginControl Admin Commands
+    permission: LoginCtl.admin
+    permission-message: You do not have permission.
+    default: op
+permissions:
+  LoginCtl.silentjoin:
+    description: Silent Login non Message
+    default: false
+  LoginCtl.silentquit:
+    description: Silent Quit non Message
+    default: false
+  LoginCtl.view:
+    description: Ping Display
+    default: op
+  LoginCtl.admin:
+    permission-message: You do not have permission.
+    default: op
+  LoginCtl.console:
+    permission-message: You do not have permission.
+    default: op

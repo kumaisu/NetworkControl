@@ -1,0 +1,131 @@
+# LoginControl Config
+
+# Kumaisu Setting
+# クマイス鯖独自の動作設定
+Kumaisu: false
+
+# Debug ( max / full / Default:normal / stop )
+Debug: normal
+
+# MySQL Settings
+mysql:
+  host: localhost
+  port: 3306
+  database: LoginList
+  username: root
+  password: password
+  MaximumPoolSize: 3
+  MinimumIdle: 3
+
+# Ignore Report
+# 一般へのリスト表示禁止
+Ignore-Names:
+  - Kumaisu
+Ignore-IP:
+  - 127.0.0.0
+
+# MotD Control
+# 照会に対し処理を実行するかどうか
+MotDCont: true
+
+# Player Ping のBroadcastアナウンスを行う
+# MotDCont が false の場合無効
+PlayerPingBroadcast: false
+
+# Unknown IP Address Check Flag
+# ネットワークDNSからの名前解決を実施するか
+# MotDCont が false の場合無効
+CheckIP: false
+
+# Ping Alarm Count
+#   規定カウントを越えた場合にアラーム警告
+#   ゼロならば動作しない
+#   Debugの設定に関わらず表示する
+#   MotDCont が false の場合無効
+AlarmCount: 5000
+
+# First Login TP
+# 初期ログインに関する対応設定
+FirstPoint: false
+world: world
+x: 0.0
+y: 0.0
+z: 0.0
+yaw: 0.0
+pitch: 0.0
+# Operator Force Jump FirstPoint
+OpJump: false
+
+# Present Items
+# 初期ログイン者へのプレゼント設定
+Present:
+  - give %player% bed 1
+  - give %player% bread 32
+  - give %player% stone_axe 1
+  - give %player% stone_pickaxe 1
+
+# Login時の案内表示用
+# /n で改行が可能、複数行の表示に対応
+ANNOUNCE:
+  Enabled: true
+  Message: "%$e－－－  おしらせ  －－－/n
+    DynmapURL [ %$4http://kumaisu.mydns.jp:8123%$f ]/n
+    Home Page [ %$4http://wikiwiki.jp/kumaisu/%$7 ]/n
+    JMS Vote  [ %$4https://minecraft.jp/servers/kumaisu.mydns.jp%$f ]"
+
+# Database 接続が完了していない場合のクライアントへの表示
+Incomplete_Message: 起動が完了していません、時間を置いて接続してください。
+
+# Login/Logout時のコメント表示用
+# /n で改行が可能、複数行の表示に対応
+New_Join_Message:
+  Enabled: true
+  Message: "%$d%player% さん、スナック・クマイスサーバーへ、ようこそ"
+  Lang:
+    - "JA,%$d%player% さん、スナック・クマイスサーバーへ、ようこそ"
+    - "EN,%$d%player% welcome to Snack Kumaisu Server"
+    - "ZH,%$d%player% 歡迎來到 Snack Kumaisu 服務器"
+    - "DE,%$d%player% willkommen im Snack Kumaisu Server"
+    - "FR,%$d%player% bienvenue sur Snack Kumaisu Server"
+    - "IT,%$d%player% benvenuto su Snack Kumaisu Server"
+    - "RU,%$d%player% добро пожаловать на сервер Snack Kumaisu"
+Returning_Join_Message:
+  Enabled: true
+  Message: "%$b%player% %$dさん、おかえりなさい！ゆっくりしていってね！"
+  Lang:
+    - "JA,%$b%player% %$dさん、おかえりなさい！ゆっくりしていってね！"
+    - "EN,%$b%player% %$d welcome back! Please go slow!"
+    - "ZH,%$b%player% %$d 歡迎回來！ 請慢一點！"
+    - "DE,%$b%player% %$d willkommen zuruck! Bitte geh langsam!"
+    - "FR,%$b%player% %$d bon retour! S'il vous plait allez lentement!"
+    - "IT,%$b%player% %$d bentornato! Per favore vai piano!"
+    - "RU,%$b%player% %$d добро пожаловать! Пожалуйста, идите медленно!"
+Quit_Message:
+  Enabled: true
+  Message: "%$b%player% %$dさんがログアウトしました"
+
+#Program Inner Messages
+Message:
+  LogFull: "%$aDisplay all logs"
+  Reload: "%$aLoginList Config Reloaded."
+  ArgsErr: "%$4Invalid argument specification, unknown argument specified"
+  OptError: "%$4Incorrect log display specification"
+#    LogFull: "%$aログをフル表示します"
+#    Reload: "%$aコンフィグを再読込しました"
+#    ArgsErr: "%$4引数指定の誤り：未知の引数が指定されました"
+#    OptError: "%$4ログ表示指定に誤りがあります"
+
+KnownServer:
+  - "104.155.197.233,JapanMinecraftServer"
+  - "213.239.204.169,Minecraft-Statistic"
+  - "104.20.70.236,Minecraft-Server-List"
+  - "104.20.237.39,MinecraftServers.org"
+  - "72.52.216.181,MinecraftServers.net"
+  - "104.25.139.100,MinecraftServers.biz"
+  - "104.25.153.114,ServerPact.com"
+  - "104.20.7.164,Minecraft-mp.com"
+  - "104.31.90.225,mcserverstatus.com"
+
+#CIDR Host List
+107.178.192.0/18: GoogleIncUS,MountainView)
+54.216.0.0/15: AmazonCom(Ireland,Dublin)

@@ -1,0 +1,32 @@
+# MotD Message YAML
+# Config.MotDCont が false の場合、すべて無効になります
+
+# Reference count
+MotD2nd-Ping-Count: 100
+MotD2nd-Ping-Max-Count: 1000
+
+# ModD Default Message
+#   %$n         : ChatColor Code
+#   %player%    : Player Name
+#   %count      : Reference count
+#   %date       : Reference start date
+MotD1st: "%$dWelcome to Minecraft Server\n"
+MotD2nd-Unknown: "%$3Let's play together"
+MotD2nd-Ping: "You are going to confirm host survival %count times since %date"
+MotD2nd-Player: "%$e%player%%$a, We are waiting for you"
+MotD2nd-Ping-Player: "%$e%player%%$a, I have not been there for a while"
+MotD2nd-Alive: "Server is running well"
+MotD2nd-Warning: "Warning: IP blocking for queries that only load the server"
+BanMotD1st: "%$eYou are denied connection on this server"
+BanMotD2nd: "%$4あなたは、このサーバーで接続拒否されています"
+# MotD1st: "%$fようこそ%$dMinecraft%$fサーバーへ"
+# MotD2nd-Unknown: "%$3いっしょに遊びましょうよ"
+# MotD2nd-Player: "%$e%player%%$aさん、まってますよ"
+# MotD2nd-Ping: "貴方は %date から生存確認を %count 回実施しています"
+# MotD2nd-Ping-Player: "%$e%player%%$a,さん、たまには如何でしょうか"
+# MotD2nd-Alive: "サーバーは元気に稼働中"
+
+# 個別メッセージ
+# Individual message
+110.132.242.177: "貴方は接続を拒否されています\nサーバールール違反です"
+Kumaisu: "%$eYou are Banned from this Server\n%$4あなたは、このサーバーから追放されています"
