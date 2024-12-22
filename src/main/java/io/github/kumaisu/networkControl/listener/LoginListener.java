@@ -6,7 +6,6 @@ package io.github.kumaisu.networkControl.listener;
 import io.github.kumaisu.networkControl.Lib.Tools;
 import io.github.kumaisu.networkControl.Lib.Utility;
 import io.github.kumaisu.networkControl.config.Config;
-import io.github.kumaisu.networkControl.database.Database;
 import io.github.kumaisu.networkControl.database.HostData;
 import io.github.kumaisu.networkControl.database.ListData;
 import io.github.kumaisu.networkControl.tools.Teleport;
@@ -35,7 +34,6 @@ public class LoginListener implements Listener {
 
     /**
      *
-     * @param plugin
      */
     public LoginListener( Plugin plugin ) {
         plugin.getServer().getPluginManager().registerEvents( this, plugin );
@@ -46,7 +44,6 @@ public class LoginListener implements Listener {
      * プレイヤーがログインしようとした時に起きるイベント
      * BANなどされていてもこのイベントは発生する
      *
-     * @param event
      */
     @EventHandler
     public void prePlayerLogin( AsyncPlayerPreLoginEvent event ) {
@@ -60,8 +57,6 @@ public class LoginListener implements Listener {
      * プレイヤーがログインを成功すると発生するイベント
      * ここでプレイヤーに対して、様々な処理を実行する
      *
-     * @param event
-     * @throws UnknownHostException
      */
     @EventHandler( priority = EventPriority.LOW )
     public void onPlayerLogin( PlayerJoinEvent event ) throws UnknownHostException {
@@ -138,7 +133,6 @@ public class LoginListener implements Listener {
     /**
      * プレイヤーがログアウトした時に発生するイベント
      *
-     * @param event
      */
     @EventHandler
     public void onPlayerQuit( PlayerQuitEvent event ) {
