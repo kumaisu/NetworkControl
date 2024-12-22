@@ -80,7 +80,6 @@ public class LoginListener implements Listener {
             Tools.Prt( player, Utility.ReplaceString( Config.AnnounceMessage, player.getDisplayName() ), Tools.consoleMode.max, Config.programCode );
         }
 
-/*
         if ( !player.hasPlayedBefore() || ( Config.OpJumpStats && player.isOp() ) ) {
             Tools.Prt( ChatColor.AQUA + "The First Login Player", Tools.consoleMode.full, Config.programCode );
 
@@ -101,38 +100,39 @@ public class LoginListener implements Listener {
 
         //  プレイヤーの言語設定を取得するために遅延処理の後 Welcome メッセージの表示を行う
         //  ラグが大きいが現状はこれが精一杯の状態
-        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask( plugin, () -> {
-            String getLocale = Tools.getLanguage( player );
-            String locale2byte = getLocale.substring( 0, 2 ).toUpperCase();
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            String locale = pl.getLocale(); // プレイヤーのロケールを取得
+            Tools.Prt( "Player " + pl.getName() + " has locale: " + locale, Config.programCode );
+        }
 
-            Tools.Prt( ChatColor.AQUA + "Player Menu is " + getLocale + " / " + locale2byte, Tools.consoleMode.full, Config.programCode );
+        String locale2byte = player.getLocale().substring(0, 2).toUpperCase();
+
+        Tools.Prt( ChatColor.AQUA + "Player Menu is " + locale2byte, Tools.consoleMode.full, Config.programCode );
             
-            if ( !player.hasPlayedBefore() || ( Config.OpJumpStats && player.isOp() ) ) {
-                if( Config.NewJoin ) {
-                    Tools.Prt( "Player host = " + player.getAddress().getHostString(), Tools.consoleMode.normal, Config.programCode );
-                    Tools.Prt( "Get Locale = " + locale2byte, Tools.consoleMode.normal, Config.programCode );
-                    String WelcomeMessage = ( Config.NewJoinMessage.get( locale2byte) == null ? Config.New_Join_Message : Config.NewJoinMessage.get( locale2byte ) );
-                    Bukkit.broadcastMessage( Utility.ReplaceString( WelcomeMessage, player.getDisplayName() ) );
-                }
-            } else {
-                if( Config.ReturnJoin ) {
-                    String ReturnMessage = 
-                        Utility.ReplaceString( 
-                            ( Config.ReturnJoinMessage.get( locale2byte ) == null ?
-                                Config.Returning_Join_Message
-                                :
-                                Config.ReturnJoinMessage.get( locale2byte )
-                            ), player.getDisplayName() );
-                    if ( player.hasPermission( "LoginCtl.silentjoin" ) ) {
-                        Tools.Prt( player, ChatColor.YELLOW + "You are silent Join", Tools.consoleMode.full, Config.programCode );
-                        Tools.Prt( player, ReturnMessage, Config.programCode );
-                    } else {
-                        Bukkit.broadcastMessage( ReturnMessage );
-                    }
+        if ( !player.hasPlayedBefore() || ( Config.OpJumpStats && player.isOp() ) ) {
+            if( Config.NewJoin ) {
+                Tools.Prt( "Player host = " + player.getAddress().getHostString(), Tools.consoleMode.normal, Config.programCode );
+                Tools.Prt( "Get Locale = " + locale2byte, Tools.consoleMode.normal, Config.programCode );
+                String WelcomeMessage = ( Config.NewJoinMessage.get( locale2byte) == null ? Config.New_Join_Message : Config.NewJoinMessage.get( locale2byte ) );
+                Bukkit.broadcastMessage( Utility.ReplaceString( WelcomeMessage, player.getDisplayName() ) );
+            }
+        } else {
+            if( Config.ReturnJoin ) {
+                String ReturnMessage =
+                    Utility.ReplaceString(
+                        ( Config.ReturnJoinMessage.get( locale2byte ) == null ?
+                            Config.Returning_Join_Message
+                            :
+                            Config.ReturnJoinMessage.get( locale2byte )
+                        ), player.getDisplayName() );
+                if ( player.hasPermission( "LoginCtl.silentjoin" ) ) {
+                    Tools.Prt( player, ChatColor.YELLOW + "You are silent Join", Tools.consoleMode.full, Config.programCode );
+                    Tools.Prt( player, ReturnMessage, Config.programCode );
+                } else {
+                    Bukkit.broadcastMessage( ReturnMessage );
                 }
             }
-        }, 100 );
-    */
+        }
     }
 
     /**
