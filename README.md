@@ -9,7 +9,7 @@ NetworkControl は、プレイヤーログインに付いて、サポートを�
 Spigot Server 1.21.3 
  
 ## Support 
-Open a new issue here: https//github.com/kumaisu/NetworkControl/issues 
+Open a new issue here: [https//github.com/kumaisu/NetworkControl/issues](https://github.com/kumaisu/NetworkControl/issues)  
  
 ## Features 
 none 
@@ -19,7 +19,7 @@ Github projects have a "releases" link on their home page.
 If you still don't see it, click here for Login Control releases. 
  
 # Wikis 
-Network Control Wiki 
+[Network Control Wiki](https://github.com/kumaisu/NetworkControl/wiki)
  
 **How to Install** 
 1.サーバーのプラグインディレクトリにLoginControl.jarを入れて起動します
