@@ -22,10 +22,10 @@ If you still don't see it, click here for Login Control releases.
 [Network Control Wiki](https://github.com/kumaisu/NetworkControl/wiki)
  
 **How to Install**  
-1.サーバーのプラグインディレクトリにLoginControl.jarを入れて起動します 
-2.一旦終了し、作成されたConfig.ymlを編集します 
-3.config設定の通りMySQLにデーターベースをCreateします 
-4.再度サーバーを起動 
+1.サーバーのプラグインディレクトリにLoginControl.jarを入れて起動します  
+2.一旦終了し、作成されたConfig.ymlを編集します  
+3.config設定の通りMySQLにデーターベースをCreateします  
+4.再度サーバーを起動  
  
 Contact is Discord Kitsune#5955  
 Discord Server https://discord.gg/AgX3UxR  
