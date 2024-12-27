@@ -3,7 +3,10 @@
  */
 package io.github.kumaisu.networkControl;
 
+import io.github.kumaisu.networkControl.tools.Discord;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import io.github.kumaisu.networkControl.listener.LoginListener;
 import io.github.kumaisu.networkControl.listener.ServerListener;
@@ -57,5 +60,19 @@ public class NetworkControl extends JavaPlugin implements Listener {
     @Override
     public void onLoad() {
         super.onLoad(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @EventHandler
+    public void onPlayerChat(AsyncPlayerChatEvent event) {
+        if ( Config.CtoD_flag ) {
+            String playerName = event.getPlayer().getName();
+            String message = event.getMessage();
+            String world = event.getPlayer().getWorld().getName().toString();
+
+            Discord.sendMessage( playerName, message, world );
+
+            // 必要に応じてメッセージを変更したり、キャンセルしたりできます
+            // event.setMessage("変更されたメッセージ");
+        }
     }
 }

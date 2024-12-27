@@ -76,6 +76,9 @@ public class ConfigManager {
         Config.AlarmCount = config.getInt( "AlarmCount" );
         Config.playerPingB = config.getBoolean( "PlayerPingBroadcast" );
 
+        Config.CtoD_flag = config.getBoolean( "CtoD", false );
+        Config.webhook = config.getString( "webhook" );
+
         Config.LogFull                  = config.getString( "Message.LogFull" );
         Config.Reload                   = config.getString( "Message.Reload" );
         Config.ArgsErr                  = config.getString( "Message.ArgsErr" );
@@ -153,6 +156,11 @@ public class ConfigManager {
             Tools.Prt( p, ChatColor.WHITE + "Ping Alram Count : " + ChatColor.YELLOW + String.valueOf( Config.AlarmCount ), programCode );
         } else {
             Tools.Prt( p, "MotD Mode : none", programCode );
+        }
+        if ( Config.CtoD_flag ) {
+            Tools.Prt( p, ChatColor.WHITE + "WebHook : " + ChatColor.YELLOW + Config.webhook, programCode );
+        } else {
+            Tools.Prt( p, ChatColor.WHITE + "WebHook : " + ChatColor.YELLOW + "none", programCode );
         }
         Tools.Prt( p, ChatColor.GREEN + "==========================", programCode );
     }

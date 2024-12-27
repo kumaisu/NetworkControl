@@ -25,7 +25,7 @@ public class LogMessage {
         //  プレイヤーの言語設定を取得するために遅延処理の後 Welcome メッセージの表示を行う
         //  ラグが大きいが現状はこれが精一杯の状態
         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask( plugin, () -> {
-            String getLocale = Tools.getLanguage( player );
+            String getLocale = player.getLocale(); // プレイヤーのロケールを取得
             String locale2byte = getLocale.substring( 0, 2 ).toUpperCase();
 
             Tools.Prt( ChatColor.AQUA + "Player Menu is " + getLocale + " / " + locale2byte, programCode );

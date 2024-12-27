@@ -22,6 +22,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.net.UnknownHostException;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -95,19 +96,16 @@ public class LoginListener implements Listener {
 
         //  プレイヤーの言語設定を取得するために遅延処理の後 Welcome メッセージの表示を行う
         //  ラグが大きいが現状はこれが精一杯の状態
-        for (Player pl : Bukkit.getOnlinePlayers()) {
-            String locale = pl.getLocale(); // プレイヤーのロケールを取得
-            Tools.Prt( "Player " + pl.getName() + " has locale: " + locale, Config.programCode );
-        }
-
+        String locale = player.getLocale();
+        String language = Tools.getLanguage( locale );
+        String country = Tools.getCountry( locale );
         String locale2byte = player.getLocale().substring(0, 2).toUpperCase();
+        Tools.Prt( ChatColor.AQUA + "Player Menu is " + locale + "/" + locale2byte + " Lang = " + language + " Country = " + country, Tools.consoleMode.full, Config.programCode );
 
-        Tools.Prt( ChatColor.AQUA + "Player Menu is " + locale2byte, Tools.consoleMode.full, Config.programCode );
-            
         if ( !player.hasPlayedBefore() || ( Config.OpJumpStats && player.isOp() ) ) {
             if( Config.NewJoin ) {
                 Tools.Prt( "Player host = " + player.getAddress().getHostString(), Tools.consoleMode.normal, Config.programCode );
-                Tools.Prt( "Get Locale = " + locale2byte, Tools.consoleMode.normal, Config.programCode );
+                Tools.Prt( "Get Locale = " + locale + " Lang = " + language + " Country = " + country, Tools.consoleMode.normal, Config.programCode );
                 String WelcomeMessage = ( Config.NewJoinMessage.get( locale2byte) == null ? Config.New_Join_Message : Config.NewJoinMessage.get( locale2byte ) );
                 Bukkit.broadcastMessage( Utility.ReplaceString( WelcomeMessage, player.getDisplayName() ) );
             }

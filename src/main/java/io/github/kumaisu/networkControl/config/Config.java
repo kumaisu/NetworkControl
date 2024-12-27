@@ -22,6 +22,9 @@ public class Config {
     public static int MaximumPoolSize;
     public static int MinimumIdle;
 
+    public static boolean CtoD_flag;
+    public static String webhook;
+
     public static boolean JumpStats;
     public static boolean OpJumpStats;
     public static boolean CheckIPAddress;

@@ -24,6 +24,11 @@ Ignore-Names:
 Ignore-IP:
   - 127.0.0.0
 
+# Chat to Discord
+# Chat 内容をDiscordへ送信するか
+CtoD: false
+webhook: https://discord.com/api/webhooks/
+
 # MotD Control
 # 照会に対し処理を実行するかどうか
 MotDCont: true

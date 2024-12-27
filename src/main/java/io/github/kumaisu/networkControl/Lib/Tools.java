@@ -1,14 +1,14 @@
 package io.github.kumaisu.networkControl.Lib;
 
+import io.github.kumaisu.networkControl.config.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
@@ -109,18 +109,30 @@ public class Tools {
         return null;
     }
 
-    public static String getLanguage( Player player ) {
-        try {
-            Object ep = getMethod( "getHandle", player.getClass() ).invoke( player, ( Object[] ) null );
-            Field f = ep.getClass().getDeclaredField( "locale" );
-            f.setAccessible( true );
-            String language = (String) f.get( ep );
-            return language;
-        }
-        catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException |
-               InvocationTargetException t ) {
-            return null;
-        }
+    /**
+     * get Language
+     * @param localeCode    Locale Code "JA-JP"
+     * @return String       Language String
+     */
+    public static String getLanguage( String localeCode ) {
+        // ロケールオブジェクトを生成
+        Locale locale = Locale.forLanguageTag(localeCode.toLowerCase().replace('-', '_'));
+        String language = locale.getDisplayLanguage( Locale.JAPANESE ); // 表示用の言語名を取得
+        Tools.Prt( ChatColor.GREEN+ "Get Locale Code : " + localeCode + " -> " + language, Tools.consoleMode.full, Config.programCode );
+        return language;
+    }
+
+    /**
+     * get Country
+     * @param localeCode    Locale Code "JA-JP"
+     * @return              Country String
+     */
+    public static String getCountry( String localeCode ) {
+        // ロケールオブジェクトを生成
+        Locale locale = Locale.forLanguageTag(localeCode.toLowerCase().replace('-', '_'));
+        String country = locale.getDisplayCountry( Locale.JAPANESE );
+        Tools.Prt( ChatColor.GREEN+ "Get Locale Code : " + localeCode + " -> " + country, Tools.consoleMode.full, Config.programCode );
+        return country; // 表示用の国名を取得
     }
 
     /**
